@@ -1,0 +1,10 @@
+{
+  "name": "tryout",
+  "private": true,
+  "dependencies": {
+    "platform": "Polymer/platform#master",
+    "core-elements": "Polymer/core-elements#master",
+    "mark-down": "~0.5.2",
+    "bootstrap": "~3.1.1"
+  }
+}

@@ -1,0 +1,33 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<polymer-element name="polymer-removable">
+  <template>
+    <style>
+      #toggler {margin:5px auto;}
+      #view {padding:0 10px 10px 0;}
+      #content {padding-top:1px;}
+    </style>
+    <div id="view">
+      <div id="actions">
+        <button id="toggler">Toggle</button>
+      </div>
+
+      <div id="content">
+        <content></content>
+      </div>
+    </div>
+  </template>
+  <script>  
+    Polymer('polymer-removable', {
+      ready: function() {
+        var self = this;
+        self.$.toggler.onclick = function(){
+          if (self.$.content.style.display !== 'none')
+            self.$.content.style.display = 'none';
+          else
+            self.$.content.style.display = '';
+        };
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,20 @@
+{
+  "name": "core-menu-button",
+  "private": false,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-icon-button": "Polymer/core-icon-button#master",
+    "core-menu": "Polymer/core-menu#master",
+    "core-overlay": "Polymer/core-overlay#master"
+  },
+  "homepage": "https://github.com/Polymer/core-menu-button",
+  "_release": "cf6273e586",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cf6273e586d55c605438ae5c46bda296bb965528"
+  },
+  "_source": "git://github.com/Polymer/core-menu-button.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-menu-button"
+}

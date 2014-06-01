@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="bower_components/platform/platform.js"></script>
+
+    <link rel="import" href="bower_components/polymer/polymer.html"> 
+    <link rel="import" href="bower_components/mark-down/mark-down.html">
+    <link rel="import" href="elements/polymer-column/polymer-column.html">
+    <link rel="import" href="elements/polymer-removable-markdown-editor/polymer-removable-markdown-editor.html">
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <style>
+      textarea {width:100%;}
+      polymer-removable-markdown-editor #markup {width:100%;}
+    </style>
+  </head>
+
+  <body>
+    <polymer-column>
+        <h1>Markdown Editor</h1>
+        <polymer-removable-markdown-editor>Hello, **world!**</polymer-removable-markdown-editor>
+    </polymer-column>
+  </body>
+</html>

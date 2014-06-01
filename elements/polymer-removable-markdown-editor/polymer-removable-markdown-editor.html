@@ -1,0 +1,31 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/mark-down/mark-down.html">
+<link rel="import" href="/elements/polymer-removable/polymer-removable.html">
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+<polymer-element name="polymer-removable-markdown-editor" extends="mark-down-editor" noscript>
+  <template>
+    <style>
+      #removables {display:table; width:100%;}
+      .removable {display:table-cell; vertical-align:top;}
+    </style>
+
+    <div id="removables">
+      <div class="removable">
+        <polymer-removable>
+          <div id="markup" part="markup">
+            <textarea id="editor" part="editor" value="{{ text }}"></textarea>
+          </div>
+        </polymer-removable>
+      </div>
+
+      <div class="removable">
+        <polymer-removable>
+            <div id="markdown" part="markdown"></div>
+        </polymer-removable>
+      </div>
+    </div>
+
+  </template>
+</polymer-element>
