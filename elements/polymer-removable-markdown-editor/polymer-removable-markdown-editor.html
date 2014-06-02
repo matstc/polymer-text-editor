@@ -8,23 +8,19 @@
   <template>
     <style>
       #removables {display:table; width:100%;}
-      .removable {display:table-cell; vertical-align:top;}
+      polymer-removable {display:table-cell; vertical-align:top;}
     </style>
 
     <div id="removables">
-      <div class="removable">
-        <polymer-removable>
-          <div id="markup" part="markup">
-            <textarea id="editor" part="editor" value="{{ text }}"></textarea>
-          </div>
-        </polymer-removable>
-      </div>
+      <polymer-removable>
+        <div id="markup" part="markup">
+          <textarea id="editor" part="editor" value="{{ text }}"></textarea>
+        </div>
+      </polymer-removable>
 
-      <div class="removable">
-        <polymer-removable>
-            <div id="markdown" part="markdown"></div>
-        </polymer-removable>
-      </div>
+      <polymer-removable>
+          <div id="markdown" part="markdown"></div>
+      </polymer-removable>
     </div>
 
   </template>

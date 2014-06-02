@@ -22,10 +22,12 @@
       ready: function() {
         var self = this;
         self.$.toggler.onclick = function(){
-          if (self.$.content.style.display !== 'none')
+          if (self.$.content.style.display !== 'none') {
             self.$.content.style.display = 'none';
-          else
+          } else {
             self.$.content.style.display = '';
+          }
+          return false;
         };
       }
     });
