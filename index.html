@@ -10,16 +10,31 @@
 
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
-    <style>
-      textarea {width:100%;}
-      polymer-removable-markdown-editor #markup {width:100%;}
-    </style>
   </head>
 
   <body>
+    <style>
+      textarea {width:100%;}
+      #removableViewer #content {background-color:#eee;}
+      #markdown {padding:15px;}
+      polymer-removable-markdown-editor #markup {width:100%;}
+      body {background-color:white;}
+      * {font-family:Ubuntu, Verdana, 'Trebuchet MS';}
+      h1#header {text-align:center; margin-bottom:30px; background-color:#333; color:white; border-radius:3px; padding:5px;}
+    </style>
+
     <polymer-column>
-        <h1>Markdown Editor</h1>
-        <polymer-removable-markdown-editor>Hello, **world!**</polymer-removable-markdown-editor>
+        <h1 id="header">Markdown Editor</h1>
+        <polymer-removable-markdown-editor>
+Hello, **world!**
+
+# Note Taking
+Done in markdown format:
+
+- item 1
+- item 2
+- item 3
+        </polymer-removable-markdown-editor>
     </polymer-column>
   </body>
 </html>

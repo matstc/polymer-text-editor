@@ -4,24 +4,45 @@
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 
-<polymer-element name="polymer-removable-markdown-editor" extends="mark-down-editor" noscript>
+<polymer-element name="polymer-removable-markdown-editor" extends="mark-down-editor">
   <template>
     <style>
       #removables {display:table; width:100%;}
       polymer-removable {display:table-cell; vertical-align:top;}
+      #editor, #editor:focus {border-style:none; -moz-box-shadow:none; outline: none; border: none !important; -moz-appearance:none;}
     </style>
 
     <div id="removables">
-      <polymer-removable>
+      <polymer-removable id="removableEditor" shown="{{editorShown}}">
         <div id="markup" part="markup">
           <textarea id="editor" part="editor" value="{{ text }}"></textarea>
         </div>
       </polymer-removable>
 
-      <polymer-removable>
+      <polymer-removable id="removableViewer" shown="{{viewerShown}}">
           <div id="markdown" part="markdown"></div>
       </polymer-removable>
     </div>
 
   </template>
+
+  <script>
+    Polymer('polymer-removable-markdown-editor', {
+      editorShownChanged: function(oldValue, newValue){ this.adjustWidths(); },
+      viewerShownChanged: function(oldValue, newValue){ this.adjustWidths(); },
+
+      adjustWidths: function(){
+        if(this.editorShown && this.viewerShown){
+          this.$.removableEditor.style.width = '50%';
+          this.$.removableViewer.style.width = '50%';
+        } else if (this.editorShown){
+          this.$.removableEditor.style.width = '100%';
+          this.$.removableViewer.style.width = '0%';
+        } else if (this.viewerShown){
+          this.$.removableEditor.style.width = '0%';
+          this.$.removableViewer.style.width = '100%';
+        }
+      }
+    })
+  </script>
 </polymer-element>

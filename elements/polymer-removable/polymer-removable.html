@@ -1,15 +1,16 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 
-<polymer-element name="polymer-removable">
+<polymer-element name="polymer-removable" attributes="shown">
   <template>
     <style>
-      #toggler {margin:5px auto;}
+      #toggler {margin:0 auto; padding:0; background-color:transparent; border-style:none;}
       #view {padding:0 10px 10px 0;}
       #content {padding-top:1px;}
+      #actions {margin-bottom:5px;}
     </style>
     <div id="view">
       <div id="actions">
-        <button id="toggler">Toggle</button>
+        <button id="toggler"><img src="fit-to-width-16.png"></button>
       </div>
 
       <div id="content">
@@ -19,13 +20,16 @@
   </template>
   <script>  
     Polymer('polymer-removable', {
+      shown: true,
       ready: function() {
         var self = this;
         self.$.toggler.onclick = function(){
           if (self.$.content.style.display !== 'none') {
             self.$.content.style.display = 'none';
+            self.shown = false;
           } else {
             self.$.content.style.display = '';
+            self.shown = true;
           }
           return false;
         };
