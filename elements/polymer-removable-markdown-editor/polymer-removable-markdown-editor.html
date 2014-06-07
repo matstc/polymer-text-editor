@@ -1,5 +1,6 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/mark-down/mark-down.html">
+<link rel="import" href="/bower_components/core-overlay/core-overlay.html">
 <link rel="import" href="/elements/polymer-removable/polymer-removable.html">
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
@@ -13,6 +14,7 @@
     </style>
 
     <div id="removables">
+
       <polymer-removable id="removableEditor" shown="{{editorShown}}">
         <div id="markup" part="markup">
           <textarea id="editor" part="editor" value="{{ text }}"></textarea>
@@ -21,13 +23,24 @@
 
       <polymer-removable id="removableViewer" shown="{{viewerShown}}">
           <div id="markdown" part="markdown"></div>
+
+          <a id="viewHtml">View HTML</a>
+          <core-overlay backdrop="true" layered="true" opened="{{htmlShown}}">
+            <div style="background-color:white; padding:30px;">
+              <h2>The HTML</h2>
+              <div id="htmlContent">
+              </div>
+            </div>
+          </core-overlay>
       </polymer-removable>
+
     </div>
 
   </template>
 
   <script>
     Polymer('polymer-removable-markdown-editor', {
+      htmlShown: false,
       editorShownChanged: function(oldValue, newValue){ this.adjustWidths(); },
       viewerShownChanged: function(oldValue, newValue){ this.adjustWidths(); },
 
@@ -42,6 +55,15 @@
           this.$.removableEditor.style.width = '0%';
           this.$.removableViewer.style.width = '100%';
         }
+      },
+
+      domReady: function(){
+        var self = this;
+        self.$.viewHtml.addEventListener('click', function(){
+          self.$.htmlContent.innerText = self.$.markdown.innerHTML;
+          self.htmlShown = true;
+          return false;
+        });
       }
     })
   </script>
